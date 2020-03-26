@@ -3,8 +3,9 @@ const MiscHelper = require('../helpers/helpers');
 module.exports = {
     getBooks: (req, res) => {
         const search = req.query.search;
+        const sort = req.query.sort;
         console.log(req.query);
-        bookModel.getBooks(search)
+        bookModel.getBooks(search, sort)
             .then((result) => {
                 MiscHelper.response(res, result, 200);
             })
