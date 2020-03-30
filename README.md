@@ -1,8 +1,8 @@
 # Online Library API
 <p align="center">
-    <img width="50%" src="https://pluspng.com/img-png/nodejs-logo-png-node-js-development-296.png">
-    <img width="50%" src="https://expressjs.com/images/express-facebook-share.png">
-    <img width="50%" src="https://upload.wikimedia.org/wikipedia/en/thumb/6/62/MySQL.svg/1200px-MySQL.svg.png">
+    <img width="50%" height="50%" src="https://pluspng.com/img-png/nodejs-logo-png-node-js-development-296.png">
+    <img width="50%" height="50%" src="https://expressjs.com/images/express-facebook-share.png">
+    <img width="50%" height="50%" src="https://upload.wikimedia.org/wikipedia/en/thumb/6/62/MySQL.svg/1200px-MySQL.svg.png">
 </p>
 
 
