@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use('/api/v1/', route);
+app.use('/', route);
 app.listen(port, () => {
     console.log(`App Listen post ${port}`);
 });

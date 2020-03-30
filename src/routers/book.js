@@ -5,8 +5,8 @@ const cors = require('cors');
 
 Router
     .get('/', bookController.getBooks)
-    .get('/:id_book', bookController.bookDetail)
     .post('/', bookController.insertBook)
+    .get('/:id_book', bookController.bookDetail)
     .patch('/:id_book', bookController.updateBook)
     .delete('/:id_book', bookController.deleteBook);
 // .post('/insert', (req, res) => res.send('ini buku ke 1'))

@@ -1,7 +1,7 @@
 const connection = require('../configs/db');
 
 module.exports = {
-    getBooks: (search, sort) => {
+    getBooks: (search, sort, seq, page) => {
         return new Promise((resolve, reject) => {
             if(search) {
                 connection.query("SELECT * FROM book WHERE title LIKE ? OR description LIKE ?", [`%${search}%`, `%${search}%`], (err, result) => {
@@ -11,8 +11,16 @@ module.exports = {
                         reject(new Error(err));
                     }
                 });
-            } else if(sort) {
-                connection.query(`SELECT * FROM book ORDER BY ${sort} ASC`, (err, result) => {
+            } else if(sort, seq) {
+                connection.query("SELECT * FROM book ORDER BY " + sort + " " + seq, (err, result) => {
+                    if(!err) {
+                        resolve(result);
+                    } else {
+                        reject(new Error(err));
+                    }
+                });
+            } else if(page) {
+                connection.query("SELECT * FROM book ORDER BY id_book LIMIT " + (page * 4 - 4) + ", 4", (err, result) => {
                     if(!err) {
                         resolve(result);
                     } else {
@@ -30,9 +38,9 @@ module.exports = {
             }
         });
     },
-    bookDetail: (id) => {
+    bookDetail: (idBook) => {
         return new Promise((resolve, reject) => {
-            connection.query("SELECT book.*, category.name_category FROM book INNER JOIN category ON book.id_category = category.id_category WHERE book.id_book = ?", id, (err, result) => {
+            connection.query("SELECT book.*, category.name_category FROM book INNER JOIN category ON book.id_category = category.id_category WHERE book.id_book = ?", idBook, (err, result) => {
                 if(!err) {
                     resolve(result);
                 } else {
