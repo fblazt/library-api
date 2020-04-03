@@ -1,5 +1,6 @@
 const categoryModel = require('../models/category');
 const MiscHelper = require('../helpers/helpers');
+
 module.exports = {
     getCategories: (req, res) => {
         console.log(req.query);

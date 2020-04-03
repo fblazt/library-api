@@ -38,9 +38,9 @@ module.exports = {
             }
         });
     },
-    userDetail: (id) => {
+    userDetail: (idUser) => {
         return new Promise((resolve, reject) => {
-            connection.query("SELECT user.*, category.name_category FROM user INNER JOIN category ON user.id_category = category.id WHERE user.id = ?", id, (err, result) => {
+            connection.query("SELECT * FROM user WHERE id_user = ?", idUser, (err, result) => {
                 if(!err) {
                     resolve(result);
                 } else {
@@ -60,9 +60,9 @@ module.exports = {
             });
         });
     },
-    updateuser: (id_user, data) => {
+    updateuser: (idUser, data) => {
         return new Promise((resolve, reject) => {
-            connection.query("UPDATE user SET ? WHERE id= ?", [data, id_user], (err, result) => {
+            connection.query("UPDATE user SET ? WHERE id_user = ?", [data, idUser], (err, result) => {
                 if(!err) {
                     resolve(result);
                 } else {
@@ -71,9 +71,9 @@ module.exports = {
             });
         });
     },
-    deleteuser: (id) => {
+    deleteuser: (idUser) => {
         return new Promise((resolve, reject) => {
-            connection.query("DELETE FROM user WHERE id = ?", id, (err, result) => {
+            connection.query("DELETE FROM user WHERE id_user = ?", idUser, (err, result) => {
                 if(!err) {
                     resolve(result);
                 } else {

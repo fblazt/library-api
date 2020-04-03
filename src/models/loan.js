@@ -41,9 +41,9 @@ module.exports = {
             });
         });
     },
-    updateloan: (id, data) => {
+    updateloan: (idLoan, data) => {
         return new Promise((resolve, reject) => {
-            connection.query("UPDATE loan_book SET ? WHERE id_loan= ?", [data, id], (err, result) => {
+            connection.query("UPDATE loan_book SET ? WHERE id_loan= ?", [data, idLoan], (err, result) => {
                 if(!err) {
                     resolve(result);
                 } else {

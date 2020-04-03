@@ -8,6 +8,5 @@ Router
     .post('/', categoryController.insertCategory)
     .patch('/:id_category', categoryController.updateCategory)
     .delete('/:id_category', categoryController.deleteCategory);
-// .post('/insert', (req, res) => res.send('ini buku ke 1'))
 
 module.exports = Router;

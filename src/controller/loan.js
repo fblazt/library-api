@@ -21,6 +21,16 @@ module.exports = {
             })
             .catch(err => console.log(err));
     },
+    updateLoan: (req, res) => {
+        const idLoan = req.params.id_loan;
+        const {status, limit_charge } = req.body;
+        const data = {status, limit_charge};
+        LoanModel.updateLoan(idLoan, data)
+            .then((result) => {
+                res.send(result);
+            })
+            .catch(err => console.log(err));
+    },
     deleteLoan: (req, res) => {
         const idLoan = req.params.id_loan;
         loanModel.deleteLoan(idLoan)

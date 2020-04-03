@@ -5,8 +5,9 @@ const cors = require('cors');
 
 Router
     .get('/', loanController.getLoans)
-    .post('/', loanController.insertLoan);
-// .patch('/:id_loan', loanController.updateLoan)
-// .delete('/:id_loan', loanController.deleteLoan);
+    .get('/:id_loan', loanController.getLoans)
+    .post('/', loanController.insertLoan)
+    .patch('/:id_loan', loanController.updateLoan)
+    .delete('/:id_loan', loanController.deleteLoan);
 
 module.exports = Router;
