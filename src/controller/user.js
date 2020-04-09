@@ -12,26 +12,38 @@ module.exports = {
             .catch(err => console.log(err));
     },
     registerUser: async (req, res) => {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        const {card_number, email, fullname, token, phone, role, photo, status} = req.body;
-        const data = {card_number, email, fullname, password: hashedPassword, token, phone, role, photo, status, created_at: new Date()};
+        const hashedPassword = await bcrypt.hashSync(req.body.password, 10);
+        const {email, fullname, photo} = req.body;
+      const data = {email, fullname, password: hashedPassword, photo: 'https://i.kym-cdn.com/entries/icons/facebook/000/031/003/cover3.jpg', status: 1, created_at: new Date()};
         userModel.registerUser(data)
             .then((result) => {
                 res.send(result);
             })
             .catch(err => console.log(err));
     },
-    // loginUser: async (req, res) => {
-    //     const data = user.find(data => user.email === req.body.email)
-    //     if (email == null) {
-    //         return res.status(400).send('Cannot find user')
-    //     }
-    //     userModel.loginUser(data)
-    //         .then((result) => {
-    //             res.send('Login Success');
-    //         })
-    //         .catch(err => console.log(err));
-    // },
+    loginUser: (req, res) => {
+      const {email, password} = req.body
+      const data = {
+        email, password
+      }
+      console.log(data.email)
+      console.log(data.password)
+      userModel.loginUser(data.email)
+        .then((result) => {
+          console.log(result)
+          bcrypt.compare(req.body.password, result[0].password, (err, respass) => {
+            console.log(respass)
+          if (respass) {
+            MiscHelper.response(res, respass, 200, `Login Success`);
+          } else {
+            MiscHelper.response(res, null, 400, `Password invalid`)
+          }
+          })
+        })
+        .catch((err) => {
+          MiscHelper.response(res, null, 400, `Email invalid`)
+        })
+    },
     userDetail: (req, res) => {
         const idUser = req.params.id_user;
         userModel.userDetail(idUser)

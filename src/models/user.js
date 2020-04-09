@@ -28,7 +28,7 @@ module.exports = {
     loginUser: (data) => {
         return new Promise((resolve, reject) => {
             if(data) {
-                connection.query("CHECK INTO user set ?", data, (err, result) => {
+                connection.query("SELECT * FROM user WHERE email = ?", data, (err, result) => {
                     if(!err) {
                         resolve(result);
                     } else {
