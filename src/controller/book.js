@@ -1,5 +1,8 @@
+require('dotenv').config();
 const bookModel = require('../models/book');
 const MiscHelper = require('../helpers/helpers');
+// const redis = require('redis');
+// const client = redis.createClient(process.env.REDIS_PORT);
 
 module.exports = {
     getBooks: (req, res) => {
@@ -10,7 +13,8 @@ module.exports = {
         console.log(req.query);
         bookModel.getBooks(search, sort, seq, page)
             .then((result) => {
-                MiscHelper.response(res, result, 200);
+              // client.setex('getallbooks', 3600, JSON.stringify(result))
+              MiscHelper.response(res, result, 200);
             })
             .catch(err => console.log(err));
     },
@@ -23,19 +27,20 @@ module.exports = {
             .catch(err => console.log(err));
     },
     insertBook: (req, res) => {
-        const {title, description, image, author, status, id_category} = req.body;
+        const {title, description, author, id_category} = req.body;
         const data = {
             title,
             description,
-            image,
             author,
-            status,
+            image: `http://localhost:8000/uploads/${req.file.filename}`, 
+            status: 1,
             id_category,
             created_at: new Date(),
         };
         bookModel.insertBook(data)
             .then((result) => {
-                res.send(result);
+              result.info = req.file;
+              MiscHelper.response(res, result, 200); 
             })
             .catch(err => console.log(err));
     },
