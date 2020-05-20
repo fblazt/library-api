@@ -1,8 +1,25 @@
 # Online Library API
 
-RESTful API to build book renting systems.
 
+<p align="center">
+  <img src="https://cdn-images-1.medium.com/max/871/1*d2zLEjERsrs1Rzk_95QU9A.png">
+</p>
 
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+
+* [Prerequisites](#Prerequisites)
+* [Installation](#Installation)
+* [Create Environment Variable](#create-environment-variable)
+* [Start Development Server](#Start-Development-Server)
+* [Postman Collection](#Postman-Collection)
+* [API Endpoint](#API-Endpoint)
+* [About Project](#About-Project)
+* [Related Project](#Related-Project)
+* [Contributing](#Contributing)
+* [Contact](#Contact)
+
+<!-- Prerequisites -->
 ### Prerequisites
 
 ```
