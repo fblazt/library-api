@@ -22,9 +22,9 @@ Library API is a REST API made for [libary-web-app](https://github.com/fblazt/li
 
 ## Prerequisites
 
-[Node.js](https://nodejs.org/en/)
-[MySQL](https://www.mysql.com/downloads/)
-[Redis](https://redis.io/)
+* [Node.js](https://nodejs.org/en/)
+* [MySQL](https://www.mysql.com/downloads/)
+* [Redis](https://redis.io/)
 
 ## Installation
 
