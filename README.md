@@ -15,7 +15,6 @@
   * [Start Development Server](#Start-Development-Server)
 * [Folders Structure](#Folders-Structure)
 * [Related Project](#Related-Project)
-* [License](#License)
 
 ## About
 Library API is a REST API made for [libary-web-app](https://github.com/fblazt/library-web-app) Front-end project.
@@ -101,6 +100,5 @@ Then, check every HTTP method / action from Postman.
 ## Related Project
 * [`library-web-app`](https://github.com/fblazt/library-web-app)
 
-## License
-
-© [Firman](https://github.com/fblazt/)
+---
+Copyright © 2020 [Firman](https://github.com/fblazt/)
